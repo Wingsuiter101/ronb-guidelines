@@ -54,17 +54,37 @@ const App: React.FC = () => {
     if (next >= 0 && next < TOTAL) setPage([next, d]);
   };
 
+  const [printMode, setPrintMode] = useState(false);
+
   useEffect(() => {
     const kd = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); }
-      if (e.key === 'ArrowLeft') go(-1);
+      if (e.key === 'p' || e.key === 'P') { setPrintMode(prev => !prev); return; }
+      if (!printMode) {
+        if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); }
+        if (e.key === 'ArrowLeft') go(-1);
+      }
     };
     window.addEventListener('keydown', kd);
     return () => window.removeEventListener('keydown', kd);
-  }, [page]);
+  }, [page, printMode]);
 
   const slides = [S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12];
   const SlideEl = slides[page];
+
+  if (printMode) {
+    return (
+      <div className="print-deck">
+        <div style={{ position: 'fixed', top: 20, right: 20, background: '#E8173C', color: '#fff', padding: '10px 20px', borderRadius: 8, zIndex: 99999, fontWeight: 'bold' }} className="print-hint">
+          Press Ctrl+P / Cmd+P to save as Vector PDF. Press 'P' again to exit.
+        </div>
+        {slides.map((SlideComponent, idx) => (
+          <div key={idx} className="print-slide-wrapper">
+            <SlideComponent />
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="deck">
