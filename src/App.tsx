@@ -70,7 +70,7 @@ const App: React.FC = () => {
     <div className="deck">
       <Cursor />
       <div className="progress" style={{ width: `${((page + 1) / TOTAL) * 100}%` }} />
-      <img src="/logo.PNG" alt="RONB" className="logo" />
+      <img src="./logo.PNG" alt="RONB" className="logo" />
       <span className="counter">{String(page + 1).padStart(2, '0')} / {TOTAL}</span>
 
       <AnimatePresence initial={false} custom={dir} mode="wait">
@@ -95,7 +95,7 @@ const S1 = () => (
   <div className="s1">
     <div className="s1-left">
       <M i={0} style={{ marginBottom: '2rem' }}>
-        <img src="/logo.PNG" alt="RONB" style={{ height: '96px', objectFit: 'contain', objectPosition: 'left' }} />
+        <img src="./logo.PNG" alt="RONB" style={{ height: '96px', objectFit: 'contain', objectPosition: 'left' }} />
       </M>
       <M i={1}><span className="tag">Content Guidelines</span></M>
       <M i={2} tag="h1" style={{ marginTop: '1.5rem' }}>
@@ -108,7 +108,7 @@ const S1 = () => (
     <div className="s1-right">
       <span className="s1-bg-number">01</span>
       <M i={3}>
-        <img src="/Cover (2).jpeg" alt="" className="s1-cover-img" />
+        <img src="./Cover (2).jpeg" alt="" className="s1-cover-img" />
       </M>
     </div>
   </div>
@@ -286,7 +286,7 @@ const S6 = () => {
       
       <div className="s6-right desktop-only">
         <M i={7} className="s6-img-wrapper" style={{ width: '100%', height: '100%', position: 'relative', zIndex: 1 }}>
-          <img src="/good-photo.png" alt="Clean photo example" className="s6-cover-img" />
+          <img src="./good-photo.png" alt="Clean photo example" className="s6-cover-img" />
           <div className="s6-hover-overlay">
             <span>Example of a good product promotion photo</span>
           </div>
@@ -298,7 +298,7 @@ const S6 = () => {
           <motion.div className="modal-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setModalOpen(false)}>
             <motion.div className="modal-inner" initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }} onClick={e => e.stopPropagation()}>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.25rem' }}>
-                <img src="/good-photo.png" alt="Example" className="modal-img" />
+                <img src="./good-photo.png" alt="Example" className="modal-img" />
                 <span style={{ color: '#fff', fontSize: '1.1rem', fontWeight: 600, letterSpacing: '-0.5px', textAlign: 'center' }}>Example of a good product promotion photo</span>
               </div>
               <button className="modal-close" onClick={() => setModalOpen(false)}><XCircle size={32} /></button>
@@ -385,8 +385,8 @@ const S8 = () => {
         <M i={6}>
           <div className="phone-mock" style={{ display: 'block' }}>
             <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>
-              <source src="/Fone-pay-video.webm" type="video/webm" />
-              <source src="/Fone-pay-video.mp4" type="video/mp4" />
+              <source src="./Fone-pay-video.webm" type="video/webm" />
+              <source src="./Fone-pay-video.mp4" type="video/mp4" />
             </video>
           </div>
         </M>
@@ -398,8 +398,8 @@ const S8 = () => {
             <motion.div className="modal-inner" initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }} onClick={e => e.stopPropagation()}>
               <div className="phone-mock" style={{ display: 'block' }}>
                 <video autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}>
-                  <source src="/Fone-pay-video.webm" type="video/webm" />
-                  <source src="/Fone-pay-video.mp4" type="video/mp4" />
+                  <source src="./Fone-pay-video.webm" type="video/webm" />
+                  <source src="./Fone-pay-video.mp4" type="video/mp4" />
                 </video>
               </div>
               <button className="modal-close" onClick={() => setModalOpen(false)}><XCircle size={32} /></button>
