@@ -70,7 +70,11 @@ const App: React.FC = () => {
 
   useEffect(() => {
     if (printMode) {
-      window.scrollTo({ top: page * window.innerHeight, behavior: 'instant' });
+      // Use a tiny timeout to ensure the DOM has painted the stacked slides
+      setTimeout(() => {
+        const el = document.getElementById(`print-slide-${page}`);
+        if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+      }, 50);
     } else {
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
@@ -86,7 +90,7 @@ const App: React.FC = () => {
           Press Ctrl+P / Cmd+P to save as Vector PDF. Press 'P' again to exit.
         </div>
         {slides.map((SlideComponent, idx) => (
-          <div key={idx} className="print-slide-wrapper">
+          <div key={idx} className="print-slide-wrapper" id={`print-slide-${idx}`}>
             <SlideComponent />
           </div>
         ))}
