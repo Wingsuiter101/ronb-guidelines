@@ -68,6 +68,14 @@ const App: React.FC = () => {
     return () => window.removeEventListener('keydown', kd);
   }, [page, printMode]);
 
+  useEffect(() => {
+    if (printMode) {
+      window.scrollTo({ top: page * window.innerHeight, behavior: 'instant' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [printMode, page]);
+
   const slides = [S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12];
   const SlideEl = slides[page];
 
